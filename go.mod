@@ -1,4 +1,4 @@
-module github.com/yourusername/golang-watcherclient
+module github.com/overwatch144/golang-watcherclient
 
 go 1.22
 

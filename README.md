@@ -4,12 +4,12 @@ Go client library for OpenStack Watcher API - Resource Optimization Service.
 
 ## Installation
 ```bash
-go get github.com/yourusername/golang-watcherclient
+go get github.com/overwatch144/golang-watcherclient
 ```
 
 ## Quick Start
 ```go
-import "github.com/yourusername/golang-watcherclient/watcherclient"
+import "github.com/overwatch144/golang-watcherclient/watcherclient"
 
 client, err := watcherclient.NewClient(watcherclient.ClientOptions{
     AuthURL:         "http://keystone:5000/v3",
