@@ -64,16 +64,23 @@ type Action struct {
 	Links          []Link                 `json:"links,omitempty"`
 }
 
+type EfficacyIndicatorSpec struct {
+	Name        string  `json:"name"`
+	Description string  `json:"description"`
+	Unit        *string `json:"unit"` // nullable
+	Schema      string  `json:"schema"`
+}
+
 // Goal represents an optimization goal
 type Goal struct {
-	UUID        string     `json:"uuid,omitempty"`
-	Name        string     `json:"name"`
-	DisplayName string     `json:"display_name,omitempty"`
-	Efficacy    string     `json:"efficacy_specification,omitempty"`
-	CreatedAt   *time.Time `json:"created_at,omitempty"`
-	UpdatedAt   *time.Time `json:"updated_at,omitempty"`
-	DeletedAt   *time.Time `json:"deleted_at,omitempty"`
-	Links       []Link     `json:"links,omitempty"`
+	UUID        string                  `json:"uuid,omitempty"`
+	Name        string                  `json:"name"`
+	DisplayName string                  `json:"display_name,omitempty"`
+	Efficacy    []EfficacyIndicatorSpec `json:"efficacy_specification,omitempty"`
+	CreatedAt   *time.Time              `json:"created_at,omitempty"`
+	UpdatedAt   *time.Time              `json:"updated_at,omitempty"`
+	DeletedAt   *time.Time              `json:"deleted_at,omitempty"`
+	Links       []Link                  `json:"links,omitempty"`
 }
 
 // Strategy represents an optimization strategy
