@@ -89,7 +89,7 @@ type Strategy struct {
 	Name        string              `json:"name"`
 	DisplayName string              `json:"display_name,omitempty"`
 	GoalUUID    string              `json:"goal_uuid,omitempty"`
-	Parameters  []StrategyParameter `json:"parameters_spec,omitempty"`
+	Parameters  interface{} 	`json:"parameters_spec,omitempty"`
 	CreatedAt   *time.Time          `json:"created_at,omitempty"`
 	UpdatedAt   *time.Time          `json:"updated_at,omitempty"`
 	DeletedAt   *time.Time          `json:"deleted_at,omitempty"`
