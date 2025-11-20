@@ -1,7 +1,5 @@
 package watcherclient
 
-import "time"
-
 // Audit represents a Watcher audit
 type Audit struct {
 	UUID        string                   `json:"uuid,omitempty"`
@@ -10,15 +8,15 @@ type Audit struct {
 	State       string                   `json:"state,omitempty"`
 	Goal        string                   `json:"goal"`
 	Strategy    string                   `json:"strategy,omitempty"`
-	Interval    int                      `json:"interval,omitempty"`
+	Interval    string                   `json:"interval,omitempty"`
 	Scope       []map[string]interface{} `json:"scope,omitempty"`
 	Parameters  map[string]interface{}   `json:"parameters,omitempty"`
+	NextRunTime string                   `json:"next_run_time,omitempty"`
 	AutoTrigger bool                     `json:"auto_trigger"`
-	NextRunTime *time.Time               `json:"next_run_time,omitempty"`
 	Hostname    string                   `json:"hostname,omitempty"`
-	CreatedAt   *time.Time               `json:"created_at,omitempty"`
-	UpdatedAt   *time.Time               `json:"updated_at,omitempty"`
-	DeletedAt   *time.Time               `json:"deleted_at,omitempty"`
+	CreatedAt   string                   `json:"created_at,omitempty"`
+	UpdatedAt   string                   `json:"updated_at,omitempty"`
+	DeletedAt   string                   `json:"deleted_at,omitempty"`
 	Links       []Link                   `json:"links,omitempty"`
 }
 
@@ -30,24 +28,24 @@ type AuditTemplate struct {
 	Goal        string                   `json:"goal"`
 	Strategy    string                   `json:"strategy,omitempty"`
 	Scope       []map[string]interface{} `json:"scope,omitempty"`
-	CreatedAt   *time.Time               `json:"created_at,omitempty"`
-	UpdatedAt   *time.Time               `json:"updated_at,omitempty"`
-	DeletedAt   *time.Time               `json:"deleted_at,omitempty"`
+	CreatedAt   string                   `json:"created_at,omitempty"`
+	UpdatedAt   string                   `json:"updated_at,omitempty"`
+	DeletedAt   string                   `json:"deleted_at,omitempty"`
 	Links       []Link                   `json:"links,omitempty"`
 }
 
 // ActionPlan represents a Watcher action plan
 type ActionPlan struct {
-	UUID           string                 `json:"uuid,omitempty"`
-	AuditUUID      string                 `json:"audit_uuid,omitempty"`
-	State          string                 `json:"state,omitempty"`
-	Strategy       string                 `json:"strategy,omitempty"`
-	GlobalEfficacy map[string]interface{} `json:"global_efficacy,omitempty"`
-	Hostname       string                 `json:"hostname,omitempty"`
-	CreatedAt      *time.Time             `json:"created_at,omitempty"`
-	UpdatedAt      *time.Time             `json:"updated_at,omitempty"`
-	DeletedAt      *time.Time             `json:"deleted_at,omitempty"`
-	Links          []Link                 `json:"links,omitempty"`
+	UUID           string      `json:"uuid,omitempty"`
+	AuditUUID      string      `json:"audit_uuid,omitempty"`
+	State          string      `json:"state,omitempty"`
+	Strategy       string      `json:"strategy,omitempty"`
+	GlobalEfficacy interface{} `json:"global_efficacy,omitempty"`
+	Hostname       string      `json:"hostname,omitempty"`
+	CreatedAt      string      `json:"created_at,omitempty"`
+	UpdatedAt      string      `json:"updated_at,omitempty"`
+	DeletedAt      string      `json:"deleted_at,omitempty"`
+	Links          []Link      `json:"links,omitempty"`
 }
 
 // Action represents a Watcher action
@@ -58,9 +56,9 @@ type Action struct {
 	State          string                 `json:"state,omitempty"`
 	Parameters     map[string]interface{} `json:"parameters,omitempty"`
 	ParentsUUIDs   []string               `json:"parents,omitempty"`
-	CreatedAt      *time.Time             `json:"created_at,omitempty"`
-	UpdatedAt      *time.Time             `json:"updated_at,omitempty"`
-	DeletedAt      *time.Time             `json:"deleted_at,omitempty"`
+	CreatedAt      string                 `json:"created_at,omitempty"`
+	UpdatedAt      string                 `json:"updated_at,omitempty"`
+	DeletedAt      string                 `json:"deleted_at,omitempty"`
 	Links          []Link                 `json:"links,omitempty"`
 }
 
@@ -77,23 +75,23 @@ type Goal struct {
 	Name        string                  `json:"name"`
 	DisplayName string                  `json:"display_name,omitempty"`
 	Efficacy    []EfficacyIndicatorSpec `json:"efficacy_specification,omitempty"`
-	CreatedAt   *time.Time              `json:"created_at,omitempty"`
-	UpdatedAt   *time.Time              `json:"updated_at,omitempty"`
-	DeletedAt   *time.Time              `json:"deleted_at,omitempty"`
+	CreatedAt   string                  `json:"created_at,omitempty"`
+	UpdatedAt   string                  `json:"updated_at,omitempty"`
+	DeletedAt   string                  `json:"deleted_at,omitempty"`
 	Links       []Link                  `json:"links,omitempty"`
 }
 
 // Strategy represents an optimization strategy
 type Strategy struct {
-	UUID        string              `json:"uuid,omitempty"`
-	Name        string              `json:"name"`
-	DisplayName string              `json:"display_name,omitempty"`
-	GoalUUID    string              `json:"goal_uuid,omitempty"`
-	Parameters  interface{} 	`json:"parameters_spec,omitempty"`
-	CreatedAt   *time.Time          `json:"created_at,omitempty"`
-	UpdatedAt   *time.Time          `json:"updated_at,omitempty"`
-	DeletedAt   *time.Time          `json:"deleted_at,omitempty"`
-	Links       []Link              `json:"links,omitempty"`
+	UUID        string      `json:"uuid,omitempty"`
+	Name        string      `json:"name"`
+	DisplayName string      `json:"display_name,omitempty"`
+	GoalUUID    string      `json:"goal_uuid,omitempty"`
+	Parameters  interface{} `json:"parameters_spec,omitempty"`
+	CreatedAt   string      `json:"created_at,omitempty"`
+	UpdatedAt   string      `json:"updated_at,omitempty"`
+	DeletedAt   string      `json:"deleted_at,omitempty"`
+	Links       []Link      `json:"links,omitempty"`
 }
 
 // StrategyParameter represents a strategy parameter
